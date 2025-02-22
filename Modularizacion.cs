@@ -10,6 +10,7 @@ class Program
         do
         {
             Console.Clear();
+            Console.WriteLine("---------------------------------");
             Console.WriteLine("      Seleccione una opción");
             Console.WriteLine("---------------------------------");
             Console.WriteLine("1. Calculadora básica");
@@ -86,45 +87,48 @@ class Program
 
     static void ShowLoadingIcon()
     {
-        
-        Console.Clear();  
-
+        Console.Clear();
         string[] spinner = { "|", "/", "-", "\\" };
         int count = 0;
-        for (int i = 0; i < 10; i++)  
+        for (int i = 0; i < 10; i++)
         {
-            Console.SetCursorPosition(0, Console.CursorTop);  
-            Console.Write(spinner[count % 4]);  
-            Thread.Sleep(200);  
+            Console.SetCursorPosition(0, Console.CursorTop);
+            Console.Write(spinner[count % 4]);
+            Thread.Sleep(200);
             count++;
         }
-        Console.SetCursorPosition(0, Console.CursorTop);  
-        Console.Write(" ");  
+        Console.SetCursorPosition(0, Console.CursorTop);
+        Console.Write(" ");
     }
 
     static void Calculadora()
     {
         Console.Clear();
+        Console.WriteLine("----------------------------------------");
+        Console.WriteLine("           Calculadora Básica");
+        Console.WriteLine("----------------------------------------");
 
         double num1, num2;
         string operacion;
-        Console.WriteLine("           Calculadora Básica");
-        Console.WriteLine("----------------------------------------");
+
         Console.Write("Ingrese el primer número: ");
         while (!double.TryParse(Console.ReadLine(), out num1))
         {
             Console.Write("Por favor ingrese un número válido: ");
         }
         Console.WriteLine("----------------------------------------");
+
         Console.Write("Ingrese el segundo número: ");
         while (!double.TryParse(Console.ReadLine(), out num2))
         {
             Console.Write("Por favor ingrese un número válido: ");
         }
         Console.WriteLine("----------------------------------------");
+
         Console.WriteLine("Seleccione la operación (+, -, *, /): ");
         operacion = Console.ReadLine();
         Console.WriteLine("----------------------------------------");
+
         switch (operacion)
         {
             case "+":
@@ -148,6 +152,7 @@ class Program
         }
 
         Console.ResetColor();
+        Console.WriteLine("----------------------------------------");
     }
 
     static double Suma(double a, double b) => a + b;
@@ -158,18 +163,19 @@ class Program
     static void ValidacionContraseña()
     {
         Console.Clear();
+        Console.WriteLine("----------------------------------------");
+        Console.WriteLine("       Validación de contraseña");
+        Console.WriteLine("----------------------------------------");
 
         string password;
         do
         {
-            Console.WriteLine("       Validación de contraseña");
-            Console.WriteLine("----------------------------------------");
             Console.Write("Ingrese la contraseña: ");
             password = Console.ReadLine();
+            Console.WriteLine("----------------------------------------");
 
             if (password == "1234")
             {
-                Console.WriteLine("----------------------------------------");
                 Console.WriteLine("Acceso concedido.");
                 break;
             }
@@ -180,18 +186,24 @@ class Program
         } while (password != "1234");
 
         Console.ResetColor();
+        Console.WriteLine("----------------------------------------");
     }
 
     static void NumeroPrimo()
     {
         Console.Clear();
+        Console.WriteLine("----------------------------------------");
+        Console.WriteLine("           Números Primos");
+        Console.WriteLine("----------------------------------------");
 
         int numero;
+
         Console.Write("Ingrese un número: ");
         while (!int.TryParse(Console.ReadLine(), out numero))
         {
             Console.Write("Por favor ingrese un número válido: ");
         }
+        Console.WriteLine("----------------------------------------");
 
         if (EsPrimo(numero))
             Console.WriteLine($"{numero} es un número primo.");
@@ -199,6 +211,7 @@ class Program
             Console.WriteLine($"{numero} no es un número primo.");
 
         Console.ResetColor();
+        Console.WriteLine("----------------------------------------");
     }
 
     static bool EsPrimo(int n)
@@ -214,6 +227,9 @@ class Program
     static void SumaPares()
     {
         Console.Clear();
+        Console.WriteLine("----------------------------------------");
+        Console.WriteLine("       Suma de Números Pares");
+        Console.WriteLine("----------------------------------------");
 
         int numero, suma = 0;
 
@@ -227,14 +243,18 @@ class Program
             if (numero % 2 == 0)
                 suma += numero;
         }
-
+        Console.WriteLine("----------------------------------------");
         Console.WriteLine($"La suma de los números pares ingresados es: {suma}");
         Console.ResetColor();
+        Console.WriteLine("----------------------------------------");
     }
 
     static void ConversionTemperatura()
     {
         Console.Clear();
+        Console.WriteLine("----------------------------------------");
+        Console.WriteLine("     Conversión de Temperatura");
+        Console.WriteLine("----------------------------------------");
 
         double temperatura;
         Console.WriteLine("Seleccione la conversión:");
@@ -242,6 +262,7 @@ class Program
         Console.WriteLine("2. Fahrenheit a Celsius");
         int opcion = int.Parse(Console.ReadLine());
 
+        Console.WriteLine("----------------------------------------");
         if (opcion == 1)
         {
             Console.Write("Ingrese los grados Celsius: ");
@@ -272,6 +293,7 @@ class Program
         }
 
         Console.ResetColor();
+        Console.WriteLine("----------------------------------------");
     }
 
     static double CelsiusAFahrenheit(double celsius) => celsius * 9 / 5 + 32;
@@ -280,12 +302,17 @@ class Program
     static void ContadorVocales()
     {
         Console.Clear();
+        Console.WriteLine("----------------------------------------");
+        Console.WriteLine("       Contador de Vocales");
+        Console.WriteLine("----------------------------------------");
 
         Console.Write("Ingrese una frase: ");
         string frase = Console.ReadLine();
+        Console.WriteLine("----------------------------------------");
         Console.WriteLine($"La cantidad de vocales es: {ContarVocales(frase)}");
 
         Console.ResetColor();
+        Console.WriteLine("----------------------------------------");
     }
 
     static int ContarVocales(string texto)
@@ -305,12 +332,17 @@ class Program
     static void CalculoFactorial()
     {
         Console.Clear();
+        Console.WriteLine("----------------------------------------");
+        Console.WriteLine("        Cálculo de Factorial");
+        Console.WriteLine("----------------------------------------");
 
         Console.Write("Ingrese un número para calcular su factorial: ");
         int num = int.Parse(Console.ReadLine());
+        Console.WriteLine("----------------------------------------");
         Console.WriteLine($"El factorial de {num} es: {Factorial(num)}");
 
         Console.ResetColor();
+        Console.WriteLine("----------------------------------------");
     }
 
     static long Factorial(int n)
@@ -326,6 +358,9 @@ class Program
     static void JuegoAdivinanza()
     {
         Console.Clear();
+        Console.WriteLine("----------------------------------------");
+        Console.WriteLine("     Juego de Adivinanza");
+        Console.WriteLine("----------------------------------------");
 
         Random rand = new Random();
         int numeroAleatorio = rand.Next(1, 101);
@@ -334,6 +369,7 @@ class Program
         {
             Console.Write("Adivine el número entre 1 y 100: ");
             intento = int.Parse(Console.ReadLine());
+            Console.WriteLine("----------------------------------------");
 
             if (intento > numeroAleatorio)
                 Console.WriteLine("Demasiado alto.");
@@ -344,23 +380,30 @@ class Program
         } while (intento != numeroAleatorio);
 
         Console.ResetColor();
+        Console.WriteLine("----------------------------------------");
     }
 
     static void PasoPorReferencia()
     {
         Console.Clear();
+        Console.WriteLine("----------------------------------------");
+        Console.WriteLine("    Paso por Referencia");
+        Console.WriteLine("----------------------------------------");
 
         int a, b;
         Console.Write("Ingrese el primer número: ");
         a = int.Parse(Console.ReadLine());
+        Console.WriteLine("----------------------------------------");
         Console.Write("Ingrese el segundo número: ");
         b = int.Parse(Console.ReadLine());
+        Console.WriteLine("----------------------------------------");
 
         Console.WriteLine($"Antes del intercambio: a = {a}, b = {b}");
         Intercambiar(ref a, ref b);
         Console.WriteLine($"Después del intercambio: a = {a}, b = {b}");
 
         Console.ResetColor();
+        Console.WriteLine("----------------------------------------");
     }
 
     static void Intercambiar(ref int a, ref int b)
@@ -373,9 +416,13 @@ class Program
     static void TablaMultiplicar()
     {
         Console.Clear();
+        Console.WriteLine("----------------------------------------");
+        Console.WriteLine("     Tabla de Multiplicar");
+        Console.WriteLine("----------------------------------------");
 
         Console.Write("Ingrese un número para mostrar su tabla de multiplicar: ");
         int num = int.Parse(Console.ReadLine());
+        Console.WriteLine("----------------------------------------");
 
         Console.WriteLine($"Tabla de multiplicar de {num}:");
         for (int i = 1; i <= 10; i++)
@@ -384,6 +431,6 @@ class Program
         }
 
         Console.ResetColor();
+        Console.WriteLine("----------------------------------------");
     }
 }
-
